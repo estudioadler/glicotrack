@@ -16,6 +16,7 @@ import { Activity01Icon, Notification01Icon } from "hugeicons-react";
 import { useSettings } from "@/contexts/SettingsContext";
 import { useToast } from "@/hooks/use-toast";
 import { Separator } from "@/components/ui/separator";
+import Header from "@/components/header";
 
 export default function Settings() {
   const { settings, updateSettings } = useSettings();
@@ -41,6 +42,9 @@ export default function Settings() {
   };
 
   return (
+    <>
+    <Header />
+    
     <div className="container mx-auto max-w-2xl px-8 py-8 rounded-lg space-y-4 bg-card">
       <h1 className="md:text-2xl text-xl">Configurações</h1>
       <form onSubmit={handleSubmit}>
@@ -151,5 +155,6 @@ export default function Settings() {
         </div>
       </form>
     </div>
+    </>
   );
 }

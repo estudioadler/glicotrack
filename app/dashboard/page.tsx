@@ -20,6 +20,7 @@ import { ptBR } from "date-fns/locale"
 import { Button } from "@/components/ui/button"
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 import { Calendar } from "@/components/ui/calendar"
+import Header from "@/components/header"
 
 const Dashboard = () => {
   const [glucoseData, setGlucoseData] = useState<Measurement[]>([])
@@ -88,6 +89,8 @@ const Dashboard = () => {
       : null
 
   return (
+    <>
+    <Header />
     <div className="min-h-screen px-4 md:px-20 pt-8">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <div className="grid grid-cols-1 col-span-1 gap-4">
@@ -170,7 +173,7 @@ const Dashboard = () => {
                     selected={selectedDate}
                     onSelect={(date: Date) => date && setSelectedDate(date)}
                     locale={ptBR}
-                    className="rounded-md border shadow"
+                    className="rounded-md border shadow "
                   />
                 </PopoverContent>
               </Popover>
@@ -258,6 +261,7 @@ const Dashboard = () => {
         </div>
       </div>
     </div>
+    </>
   )
 }
 

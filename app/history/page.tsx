@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Measurement } from "@/types/measurement"
+import Header from "@/components/header"
 
 export default function History() {
   const [measurements, setMeasurements] = useState<Measurement[]>([])
@@ -15,6 +16,8 @@ export default function History() {
   }, [])
 
   return (
+    <>
+    <Header />
     <div className="min-h-screen px-4 md:px-20 pt-8">
       <div className="max-w-7xl mx-auto space-y-8">
         <Tabs defaultValue="glucose" className="space-y-4">
@@ -87,6 +90,7 @@ export default function History() {
         </Tabs>
       </div>
     </div>
+    </>
   )
 }
 

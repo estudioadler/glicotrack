@@ -12,6 +12,7 @@ import {
   PhoneOff01Icon,
   UserAccountIcon,
 } from "hugeicons-react";
+import Header from "@/components/header";
 
 export default function Perfil() {
   const [profile, setProfile] = useState({
@@ -28,6 +29,8 @@ export default function Perfil() {
   };
 
   return (
+    <>
+    <Header />
     <div className="container mx-auto max-w-2xl px-8 py-8 bg-card rounded-lg">
       <div className="max-w-3xl mx-auto space-y-4">
         <h1 className="md:text-2xl text-xl">Perfil</h1>
@@ -120,5 +123,6 @@ export default function Perfil() {
         </Card>
       </div>
     </div>
+    </>
   );
 }

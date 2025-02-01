@@ -45,7 +45,7 @@ export function GlicoseForm() {
       id: Date.now().toString(), // Use timestamp as a simple unique ID
       glucoseValue,
       measurementDateTime,
-      status: selectedStatus,
+      status: selectedStatus || "",
       insulinDoses,
     }
 
@@ -138,7 +138,7 @@ export function GlicoseForm() {
           {/* Status */}
           <div className="space-y-2">
             <label className="block text-sm font-medium text-muted-foreground">Status da Medição</label>
-            <Card className="border-none shadow-none">
+            <Card className="border-none shadow-none bg-transparent">
               <CardContent className="grid grid-cols-5 px-0 gap-2">
                 {statusOptions.map((option) => (
                   <div key={option.title} className="flex flex-col items-center gap-2">
