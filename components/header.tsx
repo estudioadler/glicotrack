@@ -13,10 +13,11 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { Clock04Icon, DashboardSquare02Icon, Radar01Icon } from "hugeicons-react"
 import { GlicoseForm } from "./GlicoseForm"
 import { useTheme } from "next-themes"
+import { signOut, useSession } from "next-auth/react"
 
 export default function Header() {
-  const username = "Username" // Replace with actual username from your auth system
   const { theme, setTheme } = useTheme()
+  const {data: session} = useSession()
 
   const toggleTheme = () => {
     setTheme(theme === "dark" ? "light" : "dark")
@@ -56,8 +57,8 @@ export default function Header() {
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Avatar className="ml-2 cursor-pointer">
-                <AvatarImage src="https://github.com/estudioadler.png" alt={username} />
-                <AvatarFallback>{username.slice(0, 2).toUpperCase()}</AvatarFallback>
+                <AvatarImage src={session?.user?.image || ""} alt={session?.user?.name || ""} />
+                <AvatarFallback>{session?.user?.name?.slice(0, 2).toUpperCase()}</AvatarFallback>
               </Avatar>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
@@ -68,7 +69,7 @@ export default function Header() {
                 <Link href="/settings">Configurações</Link>
               </DropdownMenuItem>
               <DropdownMenuItem onClick={toggleTheme}>Trocar tema</DropdownMenuItem>
-              <DropdownMenuItem>Sair</DropdownMenuItem>
+              <DropdownMenuItem onClick={() => signOut( { callbackUrl: "/" } )}>Sair</DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         </div>

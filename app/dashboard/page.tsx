@@ -161,12 +161,12 @@ const Dashboard = () => {
               </div>
               <Popover>
                 <PopoverTrigger asChild>
-                  <Button variant="outline" className="ml-auto dark:bg-card dark:hover:bg-muted">
-                    <Calendar02Icon className="mr-2 h-4 w-4" />
-                    Selecionar data
+                  <Button variant="outline" className="px-2 md:px-4 ml-auto dark:bg-card dark:hover:bg-muted">
+                    <Calendar02Icon className="h-4 w-4" />
+                    <span className="hidden md:inline">Selecionar data</span>
                   </Button>
                 </PopoverTrigger>
-                <PopoverContent className="w-auto p-0">
+                <PopoverContent align="end" className="w-auto p-0">
                   <Calendar
                     mode="single"
                     required

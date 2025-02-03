@@ -13,14 +13,16 @@ import {
   UserAccountIcon,
 } from "hugeicons-react";
 import Header from "@/components/header";
+import { useSession } from "next-auth/react";
 
 export default function Perfil() {
+  const {data: session} = useSession();
   const [profile, setProfile] = useState({
-    name: "João Silva",
-    email: "joao.silva@email.com",
-    phone: "(11) 98765-4321",
+    name: session?.user?.name || "",
+    email: session?.user?.email || "",
+    phone: "1234567890",
     address: "Rua das Flores, 123",
-    avatar: "https://github.com/estudioadler.png",
+    avatar: session?.user?.image || "",
   });
 
   const handleSubmit = (e: React.FormEvent) => {

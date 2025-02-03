@@ -73,7 +73,7 @@ export function GlicoseForm() {
       <SheetTrigger asChild>
         <div>
           <Button className="hidden md:flex items-center">
-            <Add01Icon size={16} className="mr-2" />
+            <Add01Icon size={16}/>
             Adicionar Medição
           </Button>
           <Button
