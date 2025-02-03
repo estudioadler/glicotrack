@@ -171,7 +171,7 @@ const Dashboard = () => {
                     mode="single"
                     required
                     selected={selectedDate}
-                    onSelect={(date: Date) => date && setSelectedDate(date)}
+                    onSelect={(date?: Date) => date && setSelectedDate(date)}
                     locale={ptBR}
                     className="rounded-md border shadow "
                   />
